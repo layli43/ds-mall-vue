@@ -39,6 +39,12 @@
 					}
 				}
 			}
+		},
+		{
+			"path": "pages/brand/brand",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 		// {
 		// 	"path": "pages/product/product",
