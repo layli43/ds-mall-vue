@@ -41,9 +41,16 @@
 			}
 		},
 		{
-			"path": "pages/brand/brand",
+			"path": "pages/brand/brandDetail",
 			"style": {
-				"navigationBarTitleText": ""
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "品牌详情"
+			}
+		}, {
+			"path": "pages/brand/list",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "推荐品牌列表"
 			}
 		}
 		// {
@@ -190,18 +197,6 @@
 		// 	"style": {
 		// 		"enablePullDownRefresh": true,
 		// 		"navigationBarTitleText": "优惠券列表"
-		// 	}
-		// }, {
-		// 	"path": "pages/brand/brandDetail",
-		// 	"style": {
-		// 		"enablePullDownRefresh": true,
-		// 		"navigationBarTitleText": "品牌详情"
-		// 	}
-		// }, {
-		// 	"path": "pages/brand/list",
-		// 	"style": {
-		// 		"enablePullDownRefresh": true,
-		// 		"navigationBarTitleText": "推荐品牌列表"
 		// 	}
 		// }, {
 		// 	"path": "pages/product/newProductList",
