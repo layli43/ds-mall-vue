@@ -20,7 +20,164 @@
 			fetchBrandRecommendList
 		} from '@/api/brand.js';
 		import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
+		export default {
+				components: {
+					uniLoadMore
+				},
+				data() {
+					return {
+						loadingType: 'more', //Load more status
+						brandList: [],
+						searchParam: {
+							pageNum: 1,
+							pageSize: 6
+						}
+					};
+				},
+		
+				onLoad(options) {
+					this.loadData();
+				},
+				//Pull down to refresh
+				onPullDownRefresh() {
+					this.loadData('refresh');
+				},
+				//Load more
+				onReachBottom() {
+					this.searchParam.pageNum++;
+					this.loadData();
+				},
+				methods: {
+					//Load products with pull-down refresh and scroll-up load
+					async loadData(type = 'add', loading) {
+						//Return directly if no more data
+						if (type === 'add') {
+							if (this.loadingType === 'nomore') {
+								return;
+							}
+							this.loadingType = 'loading';
+						} else {
+							this.loadingType = 'more'
+						}
+		
+						if (type === 'refresh') {
+							this.searchParam.pageNum=1;
+							this.brandList = [];
+						}
+						fetchBrandRecommendList(this.searchParam).then(response => {
+							let prandList = response.data;
+							if (response.data.length === 0) {
+								//No more data
+								this.loadingType = 'nomore';
+								this.searchParam.pageNum--;
+							} else {
+								if (response.data.length < this.searchParam.pageSize) {
+									this.loadingType = 'nomore';
+									this.searchParam.pageNum--;
+								} else {
+									this.loadingType = 'more';
+								}
+								this.brandList = this.brandList.concat(prandList);
+							}
+							if (type === 'refresh') {
+								if (loading == 1) {
+									uni.hideLoading()
+								} else {
+									uni.stopPullDownRefresh();
+								}
+							}
+						});
+					},
+					//Details
+					navToDetailPage(item) {
+						let id = item.id;
+						uni.navigateTo({
+							url: `/pages/brand/brandDetail?id=${id}`
+						})
+					},
+					stopPrevent() {}
+				},
+			}
 </script>
 
-<style>
+<style lang="scss">
+	page,
+	.content {
+		background: $page-color-base;
+	}
+	.banner-image{
+		width: 100%;
+	}
+	.section-tit {
+		font-size: $font-base+2upx;
+		color: $font-color-dark;
+		background: #fff;
+		margin-top: 16upx;
+		text-align: center;
+		padding-top: 20upx;
+		padding-bottom: 20upx;
+	}
+	/* Product list */
+	.goods-list {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0 30upx;
+		background: #fff;
+
+		.goods-item {
+			display: flex;
+			flex-direction: column;
+			width: 48%;
+			padding-bottom: 40upx;
+
+			&:nth-child(2n+1) {
+				margin-right: 4%;
+			}
+		}
+
+		.image-wrapper {
+			width: 100%;
+			height: 150upx;
+			border-radius: 3px;
+			overflow: hidden;
+			background-color: #fff;
+
+			image {
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+			}
+		}
+
+		.title {
+			font-size: $font-lg;
+			color: $font-color-dark;
+			line-height: 80upx;
+		}
+
+		.title2 {
+			font-size: $font-sm;
+			color: $font-color-light;
+			line-height: 40upx;
+			height: 80upx;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+		}
+
+		.price-box {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-right: 10upx;
+			font-size: 24upx;
+			color: $font-color-light;
+		}
+
+		.price {
+			font-size: $font-lg;
+			color: $uni-color-primary;
+			line-height: 1;
+		}
+	}
 </style>
