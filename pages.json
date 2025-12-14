@@ -52,6 +52,22 @@
 				"enablePullDownRefresh": true,
 				"navigationBarTitleText": "推荐品牌列表"
 			}
+		},
+		{
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},{
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "收货地址"
+			}
+		}, {
+			"path": "pages/address/addressManage",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 		// {
 		// 	"path": "pages/product/product",
@@ -151,16 +167,6 @@
 		// 	"path": "pages/order/orderDetail",
 		// 	"style": {
 		// 		"navigationBarTitleText": "订单详情"
-		// 	}
-		// }, {
-		// 	"path": "pages/address/address",
-		// 	"style": {
-		// 		"navigationBarTitleText": "收货地址"
-		// 	}
-		// }, {
-		// 	"path": "pages/address/addressManage",
-		// 	"style": {
-		// 		"navigationBarTitleText": ""
 		// 	}
 		// }, {
 		// 	"path": "pages/money/pay",
