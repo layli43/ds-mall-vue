@@ -60,13 +60,13 @@
 		}, {
 			"path": "pages/address/addressManage",
 			"style": {
-				"navigationBarTitleText": "Cart"
+				"navigationBarTitleText": ""
 			}
 		},
 		{
 			"path": "pages/cart/cart",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "Cart"
 			}
 		}
 		// {
