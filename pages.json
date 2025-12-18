@@ -66,15 +66,25 @@
 		{
 			"path": "pages/cart/cart",
 			"style": {
-				"navigationBarTitleText": "Cart"
+				"navigationBarTitleText": "Shopping Cart"
 			}
 		},
 		{
 			"path": "pages/category/category",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "Categories",
+				"app-plus": {
+				  "bounce": "none"
+				}
 			}
-		}
+		},
+		{
+			"path": "pages/coupon/coupon",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "Coupon List"
+			}
+		},
 		// {
 		// 	"path": "pages/product/product",
 		// 	"style": {
@@ -198,12 +208,6 @@
 		// 	"style": {
 		// 		"enablePullDownRefresh": true,
 		// 		"navigationBarTitleText": "商品列表"
-		// 	}
-		// }, {
-		// 	"path": "pages/coupon/couponList",
-		// 	"style": {
-		// 		"enablePullDownRefresh": true,
-		// 		"navigationBarTitleText": "优惠券列表"
 		// 	}
 		// }, {
 		// 	"path": "pages/product/newProductList",
