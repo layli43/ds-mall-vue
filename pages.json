@@ -68,6 +68,12 @@
 			"style": {
 				"navigationBarTitleText": "Cart"
 			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 		// {
 		// 	"path": "pages/product/product",
