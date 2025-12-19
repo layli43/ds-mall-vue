@@ -288,6 +288,18 @@
           }
         }
       }
+	},
+	{
+		"path": "pages/public/public",
+		"style": {
+			"navigationBarTitleText": ""
+		}
+	},
+	{
+		"path": "pages/set/set",
+		"style": {
+			"navigationBarTitleText": ""
+		}
 	}
   ],
   "globalStyle": {
